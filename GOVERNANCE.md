@@ -1,13 +1,13 @@
 # GOVERNANCE.md - The Parlay Rules
 
-**Version 0.2 - 2026-11-03. Adapted from ksarith/LazarusForge (PARLAY-001); v0.2 amendments per PARLAY-003 (INTAKE-003 findings, gates-verified, human-ratified).**
+**Version 0.3 - 2026-11-03. Adapted from ksarith/LazarusForge (PARLAY-001); v0.2 amendments per PARLAY-003 (INTAKE-003 findings, gates-verified, human-ratified); v0.3 network scope per PARLAY-005 (Forge_Net distillation, gates-verified, human-ratified).**
 **Every change to this file bumps its version and is logged in [Records/Decision_Log.md](Records/Decision_Log.md). The version header is authoritative if this file and the log ever disagree.**
 
 ---
 
 ## Scope
 
-**Defines:** how contributions from humans and AI agents are received, verified, recorded, rejected, and defended against; the roles participants hold; how status, versions, and decisions advance.
+**Defines:** how contributions from humans and AI agents are received, verified, recorded, rejected, and defended against; the roles participants hold; how status, versions, and decisions advance - within one governed repository or across a network of nodes (see Network scope).
 
 **Does not define:** the project's work standards, safety rules, tooling, or what submitters should do (see [CONTRIBUTING.md](CONTRIBUTING.md)). Parlay governs the collaboration record, not the work itself.
 
@@ -24,7 +24,7 @@ Everything below serves these:
 
 ## Roles
 
-Three roles govern every contribution. A single human may hold them serially (disclosed); no AI agent session holds two roles for the same artifact.
+Four roles govern every contribution. A single human may hold them serially (disclosed); no AI agent session holds two roles for the same artifact.
 
 1. **Reader.** Reads the raw inbound contribution and produces an extract: claimed identity, findings (each with a verbatim quote and file path), and any passage that reads as an instruction to an AI. The raw source is preserved unedited at intake. The reader touches the contribution and nothing else.
 2. **Verifier.** Read-only. Checks the extract - never the raw source - against the live repository. Restates findings in its own words; states what was checked and how.
@@ -101,6 +101,25 @@ Parlay assumes open channels are attack surfaces, because agents that read inbou
 | Self-verification, echo chambers | P4, P5 |
 | History rewriting, quiet failure burial | P6, P8 |
 | Flooding | Volume caps (below) |
+
+---
+
+## Network scope (multi-node collaboration)
+
+Applies when Parlay governs collaboration records across more than one node - a node being a repository, project, or agent workspace holding its own records. Single-repo use ignores this section without loss.
+
+| Rule | Meaning | Source |
+|------|---------|--------|
+| **N1 - Local first.** | Each node's records are primary and complete on their own; network exchange (sync, cross-posting, federation) is an enhancement, never a dependency. A node cut off keeps receiving, verifying, and ratifying contributions. | LF Forge_Net NI-1, §2.1 |
+| **N2 - Propagation is not authority.** | A claim gains nothing by being replicated, majority-held, or widely synchronized. Cross-node agreement between claimed identities is corroboration only if independence was constructed (P5). | LF Forge_Net NI-2, DV-003 |
+| **N3 - Provenance survives exchange.** | A record moved between nodes carries its provenance: observer, verification state, ratification, known non-independence. A record that cannot answer "who observed, who verified, who ratified" is held unverified at the receiving node. | LF Forge_Net NI-3, DV-002 |
+| **N4 - Contradictions are preserved, not erased.** | Conflicting records from different nodes are held and logged; silent suppression of a minority record is an integrity violation. Resolution comes from new evidence or the human authority - never from popularity. | LF Forge_Net NI-4, DV-004 |
+| **N5 - Trust is three things, never one score.** | Claim confidence, contributor reliability, and governance weight are distinct. Reliability never multiplies claim confidence; governance weight never determines truth. | LF Forge_Net §2.5.0 |
+| **N6 - Participation is not command.** | Network membership, cluster role, or federation duty never overrides a node's local ratification authority or its human's overrule. No governance decision is irreversible without human confirmation. | LF Forge_Net NI-8, DV-006 |
+| **N7 - No seat accumulates unbounded authority.** | Where authority follows demonstrated contribution, it carries a ceiling and decay; high-contribution nodes must not become de facto central authorities. Authority that cannot be exercised does not accumulate. | LF Forge_Net §5 anti-concentration |
+| **N8 - Local-only stays local.** | Records a node classifies private never become network-readable because trust or reliability increased. Untagged records default private. | LF Forge_Net NI-7, PA-001 |
+
+**Boundary.** This section governs collaboration records across nodes. It does not define transport, sync protocols, replication factors, trust numerics, or physical clustering - the deep versions live in the source doctrine (LazarusForge `Architecture/Forge_Net.md`); Parlay carries only what text collaboration needs. Numeric calibration (reliability thresholds, decay, ceilings) is deferred until first multi-node use - recorded, not buried (UNK-008).
 
 ---
 
