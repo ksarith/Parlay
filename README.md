@@ -2,6 +2,8 @@
 
 **A streamlined governance rule system for human-AI collaboration, adapted from [LazarusForge](https://github.com/ksarith/LazarusForge).**
 
+*Not related to [ParlayLib](https://github.com/cmuparlay/parlaylib) (cmuparlay/parlaylib), the CMU C++ parallel-algorithms library - a different project with a coincidental name. First observed when a review of this repo described ParlayLib instead; see INTAKE-002 in [Records/Decision_Log.md](Records/Decision_Log.md).*
+
 Parlay is a small, portable set of rules for getting collaborative work done - with humans, AI agents, or both - without losing the record of what actually happened. It exists because collaboration with AI agents is easy to start and easy to corrupt: agents hallucinate, identities go unverified, confident claims arrive with no evidence behind them, and quiet rewrites erase the learning. Parlay's answer is not more gates. It is a few binding rules, written down, that make trust cheap: claims verifiable, mistakes recorded, roles declared.
 
 The name is the bet: a parley lowers the cost of two parties talking, and a parlay only pays out if the pieces work together.

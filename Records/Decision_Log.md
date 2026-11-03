@@ -7,6 +7,7 @@
 | ID | Date | Decision | Provenance |
 |----|------|----------|------------|
 | PARLAY-001 | 2026-11-03 | Parlay founded: governance rule system adapted from LazarusForge, streamlined for collaboration. Adaptation mapping below. | Directed and ratified by Ksarith (human authority, this repo). Adaptation drafted by Vibe (AI agent, architect seat, Ksarith's workspace). **Non-independence disclosed:** the adapter operates in the same methodology family as the source doctrine; this adaptation is not an independent review of LazarusForge. Source: LazarusForge live head, commit 5821398177b4c824909b51e5c1c4edde2c6b401f, read 2026-11-03. No LazarusForge file was modified. |
+| PARLAY-002 | 2026-11-03 | README disambiguation from ParlayLib (cmuparlay/parlaylib) added, closing the Proposed item derived from INTAKE-002. UNK-005 stays open for the residual collision question (search discoverability, name-matching agents). | Proposed by the Verifier seat as a derived finding from INTAKE-002; verified (README previously contained no ParlayLib reference - checked against live head, commit 78fccad); **ratified by Ksarith 2026-11-03** ("Yes - add the line"); landed by Vibe (architect seat, same workspace lineage; non-independence as disclosed in INTAKE-001/002). |
 
 ### PARLAY-001 adaptation mapping
 
