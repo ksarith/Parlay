@@ -21,6 +21,14 @@
 | File State tables, File_Template, Routing.md, Discovery.md, sidecar logs | Dropped | Streamlining decision: one Decision Log instead of per-file state tables; revisit if Parlay grows beyond ~15 governed files (UNK-004) |
 | Physical-evidence rules (claim labels, replication gates) | Dropped | Parlay governs text and collaboration records, not physical work; a project doing physical work should keep those rules from the source |
 
+## Intake Log
+
+**Every inbound artifact is counted here (P1-P3): date, channel, claimed identity, hand-off, verification state, disposition. Dispositions are the human authority's; this log is append-only.**
+
+| ID | Date | Channel | Claimed identity | Hand-off / independence | Findings summary | Verification state | Disposition |
+|----|------|---------|------------------|------------------------|------------------|--------------------|------------|
+| INTAKE-001 | 2026-11-03 | Human-routed agent review (pasted by Ksarith into a Vibe session) | Grok (model, version unstated; unauthenticated - P2) | Full context; not a blind hand-off - not recorded as constructed independence (P5) | Overall approval of the v0.1 compression; 4 minor observations, all already tracked: role separation under load (UNK-004), placeholder thresholds (UNK-002), physical-evidence and file-state drops (PARLAY-001 mapping); no rule changes proposed | Verified 2026-11-03 against live head (commit 698024f) by the Verifier seat: 12 checkable factual claims about file contents, all confirmed accurate; no discrepancies | Recorded. No changes warranted. **Non-independence disclosed:** the verifier of this intake is also v0.1's author (same workspace lineage) - this record is not an independent audit of v0.1. An unauthenticated approval adds no ratification weight (P2, P4): v0.1 remains ratified by the human authority alone. This intake exercises the intake path once, under the rules, for the first time; UNK-001 stays open. |
+
 ## Incident candidates
 
 Instruction-class text aimed at agents (P1, GOVERNANCE.md "Incidents"). Only the human authority elevates or dismisses a candidate; a submitter's label never downgrades one.
