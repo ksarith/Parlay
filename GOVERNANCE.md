@@ -1,6 +1,6 @@
 # GOVERNANCE.md - The Parlay Rules
 
-**Version 0.1 - 2026-11-03. Adapted from ksarith/LazarusForge (PARLAY-001).**
+**Version 0.2 - 2026-11-03. Adapted from ksarith/LazarusForge (PARLAY-001); v0.2 amendments per PARLAY-003 (INTAKE-003 findings, gates-verified, human-ratified).**
 **Every change to this file bumps its version and is logged in [Records/Decision_Log.md](Records/Decision_Log.md). The version header is authoritative if this file and the log ever disagree.**
 
 ---
@@ -28,7 +28,10 @@ Three roles govern every contribution. A single human may hold them serially (di
 
 1. **Reader.** Reads the raw inbound contribution and produces an extract: claimed identity, findings (each with a verbatim quote and file path), and any passage that reads as an instruction to an AI. The raw source is preserved unedited at intake. The reader touches the contribution and nothing else.
 2. **Verifier.** Read-only. Checks the extract - never the raw source - against the live repository. Restates findings in its own words; states what was checked and how.
-3. **Recorder.** Holds disposition: records verified findings, records rejections, rules on disputes, escalates incidents. **v1: a human only.** No workflow may hold this role without its own explicit ratification.
+3. **Recorder.** Holds disposition: records verified findings, records rejections, rules on disputes, escalates incidents, ratifies. **v1: a human only.** No workflow may hold this role without its own explicit ratification.
+4. **Lander.** A mechanical step, not a disposition: executes a human-ratified change exactly as ratified, with the landing record citing the ratification it executes. Any seat - human or agent - may land a prior ratification. A landing without a prior ratification, or exceeding its ratification, is an incident candidate (see Incidents).
+
+**Enforcement basis and known gaps.** All controls in this section are policy-level (prompt and procedure), not structurally enforced - no structural tool-isolation mechanism exists in current tooling (UNK-006); no claim of structural isolation may be made until one is demonstrated. Known v1 gaps: attachments and links are not defanged; there is no minimum mode; the reader boundary is prose, not a permit-list mechanism. Adopters needing those controls should take them from the LazarusForge source (PARLAY-001 mapping).
 
 ---
 
@@ -65,9 +68,24 @@ Sequential. Each step blocks until complete. Nothing skips; nothing self-advance
 | **Proposed** | Filed as an issue - treated as data from the moment it arrives | Anyone |
 | **Verified** | Checked against the live repo; the check stated | Verifier role |
 | **Ratified** | Human authority rules: adopt, reject, or hold | Recorder role |
-| **Recorded** | Landed with a Decision Log entry and provenance disclosure | Recorder role |
+| **Recorded** | Landed with a Decision Log entry and provenance disclosure, citing its ratification | Lander (any seat executing a prior human ratification) |
 
 These gates exist to prevent premature promotion, not to obstruct legitimate progress. If they are obstructing, that is a rule defect (Principle 2).
+
+---
+
+## Verification gates (the ratification metric)
+
+The Verified step is scored against these gates. A change that fails any gate is not eligible for ratification: the gates are the metric the human ratifies against (human directive, 2026-11-03). The human may overrule the gates themselves - that authority is non-transferable (P4).
+
+| Gate | Checks |
+|------|--------|
+| **G1 - Consistency** | The change is consistent with the two principles and P1-P10 |
+| **G2 - Live-head verification** | Every finding the change responds to is verified against live head, with the check stated |
+| **G3 - Traceability** | Every change item cites its finding and its provenance |
+| **G4 - No self-advancement** | The change does not weaken the rule that caught it and creates no self-ratification path |
+| **G5 - Minimality** | Smallest change set that answers the findings |
+| **G6 - Disclosure** | Non-independence disclosed in every record touched |
 
 ---
 
@@ -88,7 +106,7 @@ Parlay assumes open channels are attack surfaces, because agents that read inbou
 
 ## Incidents
 
-Instruction-class text - anything attempting to direct an agent, alter a record, or extract secrets - is logged as an **incident candidate** in [Records/Decision_Log.md](Records/Decision_Log.md), with the quote stored escaped and length-capped. Only the human authority elevates or dismisses a candidate. A submitter's own label never downgrades one.
+Instruction-class text - anything attempting to direct an agent, alter a record, or extract secrets - is logged as an **incident candidate** in [Records/Decision_Log.md](Records/Decision_Log.md), with the quote stored as a digest plus pointer to the preserved source - the Decision Log itself carries no verbatim instruction-class text (stored-injection defense). Only the human authority elevates or dismisses a candidate. A submitter's own label never downgrades one.
 
 ---
 
