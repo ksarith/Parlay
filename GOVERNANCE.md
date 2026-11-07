@@ -1,6 +1,6 @@
 # GOVERNANCE.md - The Parlay Rules
 
-**Version 0.4 - 2026-11-06. Adapted from ksarith/LazarusForge (PARLAY-001); v0.2 amendments per PARLAY-003 (INTAKE-003 findings, gates-verified, human-ratified); v0.3 network scope per PARLAY-005 (Forge_Net distillation, gates-verified, human-ratified); v0.4 handshake scope per PARLAY-007 (gates-verified, human-ratified).**
+**Version 0.5 - 2026-11-06. Adapted from ksarith/LazarusForge (PARLAY-001); v0.2 amendments per PARLAY-003 (INTAKE-003 findings, gates-verified, human-ratified); v0.3 network scope per PARLAY-005 (Forge_Net distillation, gates-verified, human-ratified); v0.4 handshake scope per PARLAY-007 (gates-verified, human-ratified); v0.5 gate metric per PARLAY-008 (gates-verified, human-ratified).**
 **Every change to this file bumps its version and is logged in [Records/Decision_Log.md](Records/Decision_Log.md). The version header is authoritative if this file and the log ever disagree.**
 
 ---
@@ -86,6 +86,15 @@ The Verified step is scored against these gates. A change that fails any gate is
 | **G4 - No self-advancement** | The change does not weaken the rule that caught it and creates no self-ratification path |
 | **G5 - Minimality** | Smallest change set that answers the findings |
 | **G6 - Disclosure** | Non-independence disclosed in every record touched |
+
+**Gate metric (v0.5, PARLAY-008).** The gates above are scored against this metric:
+
+- **GM1 - Evidence rubric.** A valid gate score states three things: the check performed, the evidence (live commit, file path, or cited record entry), and a boolean result (Pass/Fail). A gate missing any of the three is **Unscored**; Unscored counts as not passed. "Pass" without a stated check is a claim, not a score (P3).
+- **GM2 - Ratification threshold.** A package is gates-ratifiable when all six gates (G1-G6) hold valid Pass scores. Any Fail or Unscored gate blocks the Ratified step unless the human overrules it (human overrule is non-transferable).
+- **GM3 - Independence tiers.** Every gates score records its scoring tier: **T0** self-scored by the drafting seat (disclosed non-independence, P5); **T1** fresh-thread Verifier score (new context, same model lineage); **T2** blind hand-off score (constructed independence - the strongest kind Parlay accepts, per CONTRIBUTING.md). A T0 score carries ratification weight only when the human explicitly accepts the tier, and the acceptance is recorded in the ratification record - this makes explicit what PARLAY-003A/005/006A/007A practiced implicitly.
+- **GM4 - Ratification record line.** A gates-based ratification records its basis in one line in the Decision Log row that records it: gates score (e.g., "6/6 Pass"), tier, and the human tier-acceptance.
+
+Application: forward from v0.5; existing scores (PARLAY-003A, 005, 006A, 007A) are not retro-invalidated - they predate the metric and their disclosures already state their basis (P6: history not rewritten).
 
 ---
 
