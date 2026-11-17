@@ -28,7 +28,9 @@ Participants - human or AI - declare a role when they contribute. Inbound conten
 | [CONTRIBUTING.md](CONTRIBUTING.md) | How to participate, including the contribution ladder |
 | [Records/Unknowns.md](Records/Unknowns.md) | Open questions, tracked with IDs - never buried |
 | [Records/Things_We_Got_Wrong.md](Records/Things_We_Got_Wrong.md) | Public error accounting - real mistakes and their corrections |
-| [Records/Decision_Log.md](Records/Decision_Log.md) | Versioned decisions, provenance, incident candidates |
+| [Records/Decision_Log.md](Records/Decision_Log.md) | Versioned decisions and provenance |
+| [Records/Intake_Log.md](Records/Intake_Log.md) | Every inbound artifact, counted |
+| [Records/Incident_Candidates.md](Records/Incident_Candidates.md) | Incident candidates - instruction-class text aimed at agents |
 | `.github/ISSUE_TEMPLATE/contribution.md` | The one form a contribution uses |
 
 ## How to adopt Parlay in your own repo
